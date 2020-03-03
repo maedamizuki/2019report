@@ -1,0 +1,380 @@
+\documentclass[10pt]{jreport}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{cases}
+
+
+\begin{document}
+\title{統計力学特論レポート}
+
+\author{お茶の水女子大学人間文化創成科学研究科理学専攻 \\1940620 \\ 前田実津季}
+\date{\today}
+\maketitle
+
+\subsection*{1.密度行列$\rho$が純粋状態を表すための必要かつ十分条件が$\rho ^2 =\rho$で与えられることを示す。}
+＊まず必要条件であることを示す。\\
+密度行列$\rho$が純粋状態であるとき、ある一つの状態$| \psi \rangle$を使って、
+\begin{eqnarray}
+\rho = |\psi \rangle \langle \psi |
+\end{eqnarray}
+と表すことができる。
+\begin{eqnarray}
+\rho^2 = |\psi \rangle \langle \psi | \cdot |\psi \rangle \langle \psi | 
+\end{eqnarray}
+となり、ベクトルの規格直交性から$ \langle \psi  |\psi \rangle =1$であるので、
+\begin{eqnarray}
+\underline{\rho^2 = |\psi \rangle \langle \psi | =\rho}
+\end{eqnarray}
+＊次に十分条件であることを示す。\\
+$\rho$の固有値$\lambda_j$、固有状態$|\lambda_j \rangle $を使用して、
+\begin{eqnarray}
+\rho |\lambda_j \rangle = \lambda_j |\lambda_j |rangle \nonumber
+\end{eqnarray}
+$\rho$について解くと、
+\begin{eqnarray}
+\rho = \sum_j \lambda_j |\lambda_j \rangle \langle \lambda_j | 
+\end{eqnarray}
+今、このとき$\rho^2 =\rho$であるので、(4)式から
+\begin{eqnarray}
+\rho^2 &=& \sum_j \lambda_j^2|\lambda_j \rangle \langle \lambda_j | \nonumber \\
+&=& \sum_j \lambda_j |\lambda_j \rangle \langle \lambda_j | 
+\end{eqnarray}
+となり、つまり次の式が成り立つ。
+\begin{eqnarray}
+\lambda_j^2 = \lambda_j
+\end{eqnarray}
+この(6)式が成り立つのは、$\lambda_j=1,0$である。\\
+このとき、$\lambda_j$については、$\sum_j \lambda_j =1 $で、$\lambda_j \geq 0$であるので、
+\begin{eqnarray}
+\lambda_j =1 \nonumber
+\end{eqnarray}
+よって、$\rho^2 =\rho$の時は、1つの固有値は1で、残りの固有りは0であることがわかった。
+\begin{eqnarray}
+\underline{\rho =  |\psi \rangle \langle \psi |}
+\end{eqnarray}
+よって、必要かつ十分条件を示すことができた。
+
+
+\subsection*{2.規格化された２つの線形独立なベクトル$|a\rangle$、$|b\rangle$と実パラメータ$\lambda$を用いて演算子$\rho=(1-\lambda)|a\langle \rangle a|+\lambda|b\rangle\langle b|$を定義する。ただし、$\langle a | b\rangle \neq 0$と仮定する。このとき、演算子$\rho$が量子状態を表すためにパラメータ$\lambda$が満たすべき条件を求める。}
+
+演算子$\rho$が量子状態を表すために、必要な条件としては、\\
+\textcircled{\scriptsize 1}$\rho > 0$ \\
+\textcircled{\scriptsize 2}$Tr\rho =1 $\\
+の２つがある。\\
+この\textcircled{\scriptsize 1}の条件に関しては、等価な条件として、\\
+\[
+\left\{
+\begin{array}{ll}
+  \rho の固有値　>0\\
+任意の状態ベクトル|\psi \rangle について \langle \psi | \rho |\psi \rangle \geq 0
+\end{array}
+\right.
+\]
+がある。これらの条件を調べることで\textcircled{\scriptsize 1}条件を満たすので、実際に計算を行ってみると、任意の状態ベクトル$|\psi \rangle$に対して
+\begin{eqnarray}
+\langle \psi | \rho |\psi \rangle &=& (1-\lambda) \langle \psi |a \rangle \langle a  |\psi \rangle + \lambda \langle \psi |b \rangle \langle b   |\psi \rangle \nonumber \\
+&=& (1-\lambda)|\langle \psi |a \rangle  |^2 + \lambda| \lambda \langle \psi |b \rangle|^2 \nonumber \\
+&\geq& 0 
+\end{eqnarray}
+(8)式について、$|\langle \psi |a \rangle  |^2, \lambda \langle \psi |b \rangle|^2  \geq 0$より、
+\begin{eqnarray}
+\left\{
+\begin{array}{ll}
+  1-\lambda　\geq0 \nonumber \\
+  \lambda \geq 0 \nonumber 
+\end{array}
+\right.
+\end{eqnarray}
+よって、\textcircled{\scriptsize 1}の条件を満たすには、
+\begin{eqnarray}
+0 \leq \lambda \leq 1
+\end{eqnarray}
+である。次に、\textcircled{\scriptsize 2}については、
+\begin{eqnarray}
+Tr \rho &=& (1-\lambda) |a \rangle \langle a | + \lambda Tr|b \rangle \langle b | \nonumber  \\
+&=& (1-\lambda)\langle a |a \rangle + \lambda \langle b | b \rangle  \nonumber \\
+&=& 1- \lambda + \lambda =1
+\end{eqnarray}
+よって(9)、(10)式から、
+\begin{eqnarray}
+\underline{0 \leq \lambda \leq 1} 
+\end{eqnarray}
+
+
+\subsection*{3.時間tに依存した演算子$A(t)$に対して次の方程式の解$X(t)$を求める。}
+\begin{eqnarray}
+\frac{\partial}{\partial t}X(t) =X(t)A(t) \nonumber
+\end{eqnarray}
+初期条件：$X(0)=1$\\
+ただし、$[A(t_1),A(t_2)]\neq 0 (t_1 \neq t_2)$である。\\
+
+$X(t)$について、まず次の形を仮定する。\\
+\begin{eqnarray}
+X(t) = [1+\int_0^tdt'A(t')+\frac{1}{2}\int^t_0dt_1 A(t_1)\int^t_0dt_2A(t_2)+\cdots ]X(0)
+\end{eqnarray}
+実際に微分してみる。\\
+\begin{eqnarray}
+\frac{d}{dt}X(t) = [A(t)+\frac{1}{2}A(t)\int^t_0dt'A(t')+\underline{\frac{1}{2}\int^t_0dt'A(t')A(t)}+\cdots]X(0)
+\end{eqnarray}
+下線部の項が前後入れ替わり、$A(t)$を前にくくり出すことができれば、(13)式は、
+\begin{eqnarray}
+\frac{d}{dt}X(t) = A(t) X(t) \nonumber
+\end{eqnarray}
+となる。\\
+そこで、時間順序積Tを用いて、時間の順序で並べてくれる特徴を活かす。(12)式に関して、
+\begin{eqnarray}
+X(t) = T[1+\int_0^tdt'A(t')+\frac{1}{2}\int^t_0dt_1 A(t_1)\int^t_0dt_2A(t_2)+\cdots]X(0) \nonumber
+\end{eqnarray}
+であれば、
+\begin{eqnarray}
+\frac{d}{dt}X(t)&=&T [A(t)+\frac{1}{2}A(t)\int^t_0dt'A(t')+\underline{\frac{1}{2}\int^t_0dt'A(t')A(t)}+\cdots]X(0) \nonumber \\
+&=& A(t) T[1+\int_0^tdt'A(t')+\frac{1}{2}\int^t_0dt_1 A(t_1)\int^t_0dt_2A(t_2)+\cdots]X(0) \nonumber \\
+&=& A(t)X(t)
+\end{eqnarray}
+となる。よって、
+\begin{eqnarray}
+X(t) &=& T[1+\int_0^tdt'A(t')+\frac{1}{2}\int^t_0dt_1 A(t_1)\int^t_0dt_2A(t_2)+\cdots]X(0) \nonumber \\
+&=& \underline{T\exp(\int^t_0dt'A(t) )X(0)}
+\end{eqnarray}
+
+\subsection*{4.次の式で与えられる$4 \times 4$行列が量子状態を表すための必要十分条件を求める。}
+\begin{eqnarray}
+\left(
+    \begin{array}{cccc}
+      a & 0 & 0 &x\\
+      0 & b & y & 0\\
+      0 & z & c & 0 \\
+      w & 0& 0&d 
+      \end{array} \nonumber
+  \right)
+\end{eqnarray}
+
+上記の行列が量子状態を表すためな条件としては、\\
+\textcircled{\scriptsize 1}$\rho > 0$ \\
+\textcircled{\scriptsize 2}$Tr\rho =1 $\\
+である。\\
+\textcircled{\scriptsize 1}の条件に関して、言い換えると、 $\rho^+ =\rho$である。\\
+よって\textcircled{\scriptsize 1}に関して、満たすためには、\underline{$\rho$はエルミート共役な行列である。}\\
+\textcircled{\scriptsize 2}については、
+\begin{eqnarray}
+Tr\left(
+    \begin{array}{cccc}
+      a & 0 & 0 &x\\
+      0 & b & y & 0\\
+      0 & z & c & 0 \\
+      w & 0& 0&d 
+      \end{array} \nonumber
+  \right) = a+b+c+d =1
+  \end{eqnarray}
+  である。
+ よって、
+\[
+\left\{
+\begin{array}{ll}
+行列はエルミート共役な行列である。 \\
+a+b+c+d =1
+\end{array}
+\right.
+\]
+である必要がある。
+
+\subsection*{5.大きさ1/2のスピンの状態$\rho(t)$の時間発展が次の量子マスター方程式によって決定される場合を考える。}
+\begin{eqnarray}
+\frac{\partial}{\partial t}\rho(t) = -\frac{i}{2}\omega [ \sigma_z,\rho(t) ]+\gamma [\sigma_z \rho(t)\sigma_z-\rho(t)]
+\end{eqnarray}
+ただし、$\omega$と、$\gamma$は正の定数、$\sigma_z$はスピンのzの成分を表すパウリ行列である。初期状態がスピンのx成分の固有状態であるとき、任意の時刻での状態$\rho(t)$を求め、スピンがどのような運動をするかを定性的に説明する。\\
+
+まずパウリ行列に関して、まとめる。
+\begin{eqnarray}
+\sigma_x = \left(
+    \begin{array}{cc}
+      0 & 1 \\
+      1 & 0 
+      \end{array} 
+  \right) , \sigma_y = \left(
+    \begin{array}{cc}
+      0 & -i \\
+      i & 0 
+      \end{array} 
+  \right) , \sigma_z =  \left(
+    \begin{array}{cc}
+      1 & 0 \\
+      0 & -1
+      \end{array} 
+  \right) 
+  \end{eqnarray}
+またこれらを利用して、次の行列を定義する。
+\begin{eqnarray}
+\sigma_+ = \frac{\sigma_x+i\sigma_y}{2} 
+= \left(
+    \begin{array}{cc}
+      0 & 1 \\
+      0 & 0 
+      \end{array} 
+  \right) , \sigma_- = \frac{\sigma_x-i\sigma_y}{2} 
+  = \left(
+    \begin{array}{cc}
+     0 & 0 \\
+      1& 0 
+      \end{array} 
+  \right)
+  \end{eqnarray}
+  密度演算子は、
+  \begin{eqnarray}
+  \rho(t) =\frac{1}{2} [1+ \vec a(t) \vec \sigma]
+  \end{eqnarray}
+この時、
+\begin{eqnarray} 
+\vec{a}(t) &=& (a_x(t),a_y(t),a_z(t)) \nonumber \\
+\vec{\sigma}&=& (\sigma_x,\sigma_y,\sigma_z) \nonumber \\
+\end{eqnarray}
+である。また、
+\begin{eqnarray}
+\langle \sigma_x \rangle &=& a_x \nonumber \\
+\langle \sigma_y \rangle &=& a_y \nonumber \\
+\langle \sigma_z \rangle &=& a_z \nonumber 
+\end{eqnarray}
+であるので、(19)式は、
+\begin{eqnarray}
+\rho(t) = \frac{1}{2}(1+a_z\sigma_z+a_+ \sigma_+ +a_- \sigma_-)
+\end{eqnarray}
+時刻tでの$\rho(t)$を知るには、(19)式より、$\langle \sigma_z(t) \rangle$、$\langle \sigma+(t) \rangle$が分かれば良い。($\langle \sigma_+(t)\rangle ^* = \langle\sigma_-(t) \rangle$ので$\langle \sigma_+ \rangle$、$\langle \sigma_z \rangle$について解いていく。)\\
+(16)式の両辺に$\sigma_+$をかけて、トレースをとる。\\
+\begin{eqnarray}
+\frac{\partial}{\partial t} \langle \sigma_+ \rangle &=& Tr\sigma_+\frac{\partial}{\partial t} \rho(t) \nonumber \\
+&=& Tr[\sigma_+(-\frac{i}{2}w[\sigma_z,\rho(t)]+\gamma[\sigma_z \rho(t) \sigma_z-\rho(t)])] \nonumber \\
+&=& -\frac{i}{2}w \underline{Tr[\sigma_+,[\sigma_z,\rho(t)]]}+\gamma \underline{Tr[\sigma_+(\sigma_z \rho \sigma_z)-\rho]}
+\end{eqnarray}
+下線部の項について、計算していく。下線部の１項目に関して、\\
+\begin{eqnarray}
+Tr[\sigma_+,[\sigma_z,\rho(t)]] &=& Tr(\sigma_+ \sigma_z \rho(t)-\sigma_+ \rho(t) \sigma_z)\nonumber \\
+&=& Tr(\sigma_+ 2 \sigma_+ \sigma_- \rho(t) -\sigma_+ \rho(t)-\sigma_+ \rho(t) 2\sigma_+ \sigma_- + \sigma_+ \rho(t)) \nonumber \\
+&=& Tr(2\sigma_+^2 \sigma_- \rho(t)-\sigma_+ \rho(t)2\sigma_+\sigma_-) \nonumber \\
+&=& -2Tr\rho(t)\sigma_+\sigma_- \sigma_+ =-2 \langle \sigma_+(t) \rangle 
+\end{eqnarray}
+($\sigma_+^2=0$であるため。)\\
+次に下線部の２項目に関して、
+\begin{eqnarray}
+Tr[\sigma_+(\sigma_z \rho \sigma_z)-\rho] &=& Tr \sigma_+(2\sigma_+\sigma_-\rho(t) \sigma_z -\rho \sigma_z-\rho) \nonumber \\
+&=& Tr\sigma_+(2\sigma_+ \sigma_- \rho(2\sigma_+ \sigma_- -1 )-\rho(2\sigma_+\sigma_- -1)-\rho) \nonumber \\
+&=& Tr \sigma_+(4\sigma_+\sigma_- \rho \sigma_+ \sigma_- -2\sigma_+ \sigma_- \rho -2\rho \sigma_+\sigma_- +\rho -\rho) \nonumber \\
+&=& Tr(-2\rho \sigma_+\sigma_-\sigma_+) \nonumber \\
+&=& -2 \langle \sigma_+(t) \rangle 
+\end{eqnarray}
+よって(22)式は、
+\begin{eqnarray}
+\frac{\partial}{\partial t} \langle \sigma_+ \rangle =(iw -2\gamma)\langle \sigma_+\rangle
+\end{eqnarray}
+これが、x-y平面での緩和を示している。\\
+同様にして、z方向も考える。\\
+\begin{eqnarray}
+\frac{\partial}{\partial t} \langle \sigma_z \rangle &=& Tr(\sigma_z \frac{\partial}{\partial t}\rho(t)) \nonumber \\
+&=& Tr \sigma_z (-\frac{i}{2}w\sigma_z \rho(t)+\frac{i}{2}w \rho(t) \sigma_z+\gamma\sigma_z\rho(t) \sigma_z -\gamma \rho(t)) \nonumber 
+\end{eqnarray}
+$\sigma_z^2 =1$より、
+\begin{eqnarray}
+\frac{\partial}{\partial t} \langle \sigma_z \rangle &=& 0
+\end{eqnarray}
+よって、まとめると、
+\begin{eqnarray}
+\left\{
+\begin{array}{lll}
+\langle \sigma_+ \rangle = e^{(iw-2\gamma)t} \langle \sigma_+(0) \rangle  \\
+\langle \sigma_- \rangle = e^{(-iw-2\gamma)t} \langle \sigma_-(0) \rangle  \\
+\langle \sigma_z \rangle = 0
+\end{array}
+\right.
+\end{eqnarray}
+(21)式より、時刻tでの密度演算子は、
+\begin{eqnarray}
+\underline{\rho(t) = \frac{1}{2}+e^{(iw-2\gamma)t} \langle \sigma_+(0)\rangle\sigma_+ +  e^{(-iw-2\gamma)t} \langle \sigma_-(0)\rangle \sigma_- }
+\end{eqnarray}
+となる。\\
+tでのz成分は初期状態のまま０で、初期状態のx成分の1/2のスピンは、xy平面上で、振動数wで回転することがわかった。
+
+
+\subsection*{6.ハミルトニアンが$H$で与えられる物理系が熱平衡状態にある。この系に十分に弱い静的な外場$F$を掛けて十分に時間が経過した後を考える。ただし、外場とシステムの相互作用ハミルトニアンを$H=-FX$とする。$X$はシステムの物理量である。このとき、外場$F$の物理系への影響を線形応答理論を用いて調べる。}
+Fが時間によらない弱い静的な外場の場合である。\\
+全体のハミルトニアンは、\\
+系のハミルトニアン$H'$と、\\
+相互作用のハミルトニアン$H=-FX$ \\
+がある。\\
+影響を見るためには、外場$F=0$の時と、$F\neq0$の時を考え、その差を見てみる。\\
+(a)$F=0$の時は、系は熱平衡状態にある。この時系の状態は、
+\begin{eqnarray}
+\rho_0 =\frac{1}{Z_0}e^{-\beta H'}
+\end{eqnarray}
+となる。\\
+ここで、分配関数$Z_0=Tre^{-\beta H'}$で、$\beta =1/kT$である。
+(b)$F\neq 0$の時も十分に時間が経過したので、系は熱平衡状態にある。\\
+この時の系の状態は、
+\begin{eqnarray}
+\rho = \frac{1}{Z} e^{-\beta(H'+H)}
+\end{eqnarray}
+となり、
+\begin{eqnarray}
+Z = Tre^{-\beta(H'+H)}
+\end{eqnarray}
+と表される。
+(30)式を外場に関して一次まで展開して求める。\\
+H'とHは非可換なので、$[X,H']\neq 0$である。ここで次の$f(\beta)$を考える。
+\begin{eqnarray}
+f(x) &=& e^{x H'}e^{-x(H'+H)} \\
+f(0)&=& 1 \nonumber \\
+\frac{d}{dx} &=& -e^{x H'}e^{-x(H'+H)} \nonumber \\
+&=& -e^{x H'}He^{-x H'}e^{x H'}e^{-x (H'+H)} \nonumber \\
+&=& -e^{x H'}He^{-x H'}f(x) \nonumber 
+\end{eqnarray}
+\begin{eqnarray}
+f(\beta) =1-\int^\beta_0 dx \underline{e^{xH'}He^{-\beta H'}}f(x)
+\end{eqnarray}
+下線部部分は外場に対しての１次の項である。\\
+つまり、$f(x)$は0次となるには、$H=0$の時に、(32)式より、$f(x)=1$となる。よって、
+\begin{eqnarray}
+f(\beta)=1-\int^\beta_0 dx e^{xH'}He^{-xH'}
+\end{eqnarray}
+左辺も(32)式より展開すると、
+\begin{eqnarray}
+e^{\beta H'}e^{-\beta(H'+H)}=1-\int^\beta_0 dx e^{xH'}He^{-xH'} 
+\end{eqnarray}
+両辺に$e^{-\beta H'}$をかける。
+(35)式は、
+\begin{eqnarray}
+e^{-\beta (H'+H)}&=& e^{-\beta H'}-\int^\beta_0 dx e^{-(\beta-x)H')} H e^{-xH'} \nonumber \\
+&=& e^{-\beta H'}-\int ^\beta _0 dx e^{-xH'}H e^{-(\beta-x)H'}
+\end{eqnarray}
+分配関数を求めると、(36)式より、両辺トレースをとると、
+\begin{eqnarray}
+Z&=&Z_0 - \int^\beta_0 dx Tr (e^{-(\beta-x)H'}H e^{-xH'}) \nonumber \\
+&=&Z_0 -\beta Tr(e^{-\beta H'}H) \nonumber \\
+&=& Z_0 \beta Tr (e^{-\beta H'}/Z_0 H)Z_0 \nonumber \\
+&=& Z_0(1-\beta \langle H \rangle_0) {   }((29)式より)
+\end{eqnarray}
+今この時、$\langle H \rangle _0 =Tr(H\rho_0)$である。Hは今、$H=-FX$なので、(37)式は、
+\begin{eqnarray}
+Z=Z_0(1+\beta \langle x \rangle_0 F )
+\end{eqnarray}
+となる。(38)式より、
+\begin{eqnarray}
+\frac{1}{Z} = \frac{1}{Z_0}(1-\beta \langle x \rangle_0 F)
+\end{eqnarray}
+となる。系の状態$\beta$は、
+\begin{eqnarray}
+\rho =\frac{1}{Z}e^{-\beta (H'+H)}
+\end{eqnarray}
+ここに、(39)式と(36)式を代入する。
+\begin{eqnarray}
+\rho=\frac{1}{Z_0}(1-\beta \langle x \rangle _0 F)(e^{-\beta H'}+\int^\beta_0 dx e^{-(\beta-x)H'}xe^{-xH'}F)
+\end{eqnarray}
+Fの1次で展開すると、
+\begin{eqnarray}
+\rho &\simeq& \frac{1}{Z_0} e^{-\beta H'}+\frac{1}{Z_0} \int^\beta_0 dx e^{-(\beta-x)H'}xe^{-xH'} \nonumber \\
+&=& \rho_0+[\frac{1}{Z_0}\int^\beta_0 dx e^{-(\beta-x)H'}xe^{-xH'}-\beta \langle x \rangle_0 \rho_0 ]F 
+\end{eqnarray}
+よって、系の状態の変化は、
+\begin{eqnarray}
+\rho-\rho_0 =\underline{[\frac{1}{Z_0}\int^\beta_0dx e^{-(\beta-x)H'}xe^{-xH'}-\beta\langle x\rangle_0 \rho_0]F}
+\end{eqnarray}
+となる。
+
+\end{document}
+

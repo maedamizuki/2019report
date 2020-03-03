@@ -1,0 +1,500 @@
+\documentclass[10pt]{jreport}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{cases}
+
+
+\begin{document}
+\title{理学総論レポート（担当：高橋先生）}
+
+\author{お茶の水女子大学人間文化創成科学研究科理学専攻 \\1940620 \\ 前田実津季}
+\date{\today}
+\maketitle
+
+\section*{スピン軌道相互作用について調べる}
+量子力学の拡張である相対論的量子力学においてスピン軌道相互作用項を考えなければいけない。実際にディラック方程式を使用して相互作用の補正項を考慮するにあたっての導出を行う。\\
+\subsection*{自由粒子の運動エネルギーについて考える}
+今、質量$m_e$の自由電子で、運動量$\textbf{p}=(p_x,p_y,p_z)$であると、この電子のエネルギーは、$c$は光速として、
+\begin{equation}
+E^2=m_e^2c^4+c^2\textbf{p}^2
+\end{equation}
+と表される。\\
+エネルギーの１次式に直すと、\\
+\begin{equation}
+E=\pm\sqrt{m_e^2c^4+c^2\textbf{p}^2}=\pm m_ec^2\sqrt{1+\frac{\textbf{p}^2}{m_e^2c^2}}
+\end{equation}
+z方向のみの運動を考える。この時、$\textbf{p}=(0,0,p_z)$で、$E=\pm\sqrt{m_e^2c^4+c^2\textbf{p}^2}$である。\\
+このとき、正エネルギー状態と負エネルギー状態に分かれ、負エネルギー状態は陽電子と考えることができる。\\
+この負エネルギー状態と正エネルギー状態との差は$+2m_e c^2$である。つまり、$+2m_e c^2$の大きさのエネルギーが与えられると負エネルギー状態の電子が正エネルギー状態に励起され、生成された空孔が陽電子でありイオン対生成のメカニズムになる。
+
+\subsection*{運動エネルギーの相対論補正項について}
+ここからは、電子の正エネルギー状態のみ扱うことにする。\\
+まず、$|x|\ll1$のとき、$\sqrt{1+x}$は次のようにテーラー展開できる。\\
+\begin{eqnarray}
+\sqrt{1+x} \approx 1+\frac{x}{2}-\frac{x^2}{8} \nonumber
+\end{eqnarray}
+この近似式を使用すると、エネルギーの(2)式は次のように近似することができる。\\
+\begin{eqnarray}
+E &=& m_ec^2\sqrt{1+\frac{\textbf{p}^2}{m_e^2c^2}}\approx m_ec^2[1+\frac{1}{2}\frac{\textbf{p}^2}{m_e^2c^2}-\frac{1}{8}\frac{\textbf{p}^4}{m_e^4c^4}] \nonumber \\
+&=& m_e^2 + \frac{\textbf{p}^2}{2m_e}-\frac{1}{8}\frac{\textbf{p}^4}{m_e^3 c^2} 
+\end{eqnarray}
+このそれぞれの項を見てみると、第１項目は質量エネルギー項、第２項目は非相対論の運動エネルギー項、第３項目が相対論的補正項である。\\
+エネルギーの基準点を置き換えると、次のようにも表現することができ、補正項がわかりやすくなっている。
+\begin{equation}
+E=\frac{\textbf{p}^2}{2m_e}-\frac{1}{8}\frac{\textbf{p}^4}{m_e^3c^2}
+\end{equation}
+
+\subsection*{量子力学からの観点から}
+量子力学で考える際には、エネルギー式の運動量$\textbf{p}$を演算子に置き換え、波動関数$\Phi$に作用させる。
+\begin{eqnarray}
+p_x \rightarrow \tilde{p}_x = \frac{\hbar}{i} \frac{\partial}{\partial x} \nonumber 
+\end{eqnarray}
+先ほどの(4)式の相対論的運動エネルギーの補正項に関しては、
+\begin{eqnarray}
+-\frac{1}{8}\frac{\tilde{\textbf{p}^4}}{m_e^3c^2}\Phi = -\frac{1}{8} \frac{\hbar ^4}{m_e^3 c^2}\nabla^4\Phi 
+\end{eqnarray}
+元の(1)式の量子化を行う。
+\begin{eqnarray}
+\tilde{E}^2 \Phi = [m_e^2c^4-c^2\tilde{\textbf{p}}^2]\Phi \nonumber \\
+\rightarrow \tilde{E}^2 \Phi = [m_e^2 c^4+c^2\hbar ^2 \nabla^2]\Phi
+\end{eqnarray}
+この式はKlein-Gordon方程式と知られているが、電子のスピンに関しては考慮できていない。
+
+\subsection*{Dirac方程式に関して}
+エネルギーが(1)式を満たせれば良いとして、ディラクが次のような式を提唱した。
+\begin{eqnarray}
+E= \left [
+\begin{array}{r}
+\Phi_1 \\
+\Phi_2 \\
+\Phi_3 \\
+\Phi_4 
+\end{array}
+\right ] = \left [
+\begin{array}{cccc}
+m_e c^2 & 0 & c\hat{p}_x & c(\hat{p}_x-i\hat{p}_y) \\
+0& m_ec^2 & c(\hat{p}_x+i\hat{p}_y) & -c\hat{p}_z \\
+c\hat{p}_z & c(\hat{p}_x-i\hat{p}_y) & -m_ec^2 & 0 \\
+c(\hat{p}_x+i\hat{p}_y) & -c\hat{p}_z & 0 & -m_ec^2 
+\end{array}
+\right ] \left [
+\begin{array}{r}
+\Phi_1 \\
+\Phi_2 \\
+\Phi_3 \\
+\Phi_4 
+\end{array}
+\right ]
+\end{eqnarray}
+４つの関数の$\Phi_1,\Phi_2,\Phi_3,\Phi_4$がセットになって１つの電子状態が決まる。波動関数は
+\begin{eqnarray}
+ \left [
+\begin{array}{r}
+\Phi_1 \\
+\Phi_2 \\
+\Phi_3 \\
+\Phi_4 
+\end{array}
+\right ] 
+\end{eqnarray}
+と表される。
+エネルギー演算子を$\hat{H}_D$と表すと、
+\begin{eqnarray}
+ \left [
+\begin{array}{cccc}
+m_e c^2 & 0 & c\hat{p}_x & c(\hat{p}_x-i\hat{p}_y) \\
+0& m_ec^2 & c(\hat{p}_x+i\hat{p}_y) & -c\hat{p}_z \\
+c\hat{p}_z & c(\hat{p}_x-i\hat{p}_y) & -m_ec^2 & 0 \\
+c(\hat{p}_x+i\hat{p}_y) & -c\hat{p}_z & 0 & -m_ec^2 
+\end{array}
+\right ]
+\end{eqnarray}
+となる。\\
+(7)式はつまりエネルギー演算子を使って、次のような固有方程式でかける。
+\begin{equation}
+\hat{H}_D \Phi = E \Phi
+\end{equation}
+エネルギー演算子$\hat{H}_D$を２乗すると、
+\begin{eqnarray}
+\hat{H}_D^2 = \left [
+\begin{array}{cccc}
+m_e^2 c^4+c^2\hat{p}^2 & 0 & 0 & 0 \\
+0& m_e^2 c^4+c^2\hat{p}^2 & 0 & 0 \\
+0 & 0 & m_e^2c^4+c^2\hat{p}^2 & 0 \\
+0 & 0 & 0 & m_e^2c^4+c^2\hat{p}^2 
+\end{array}
+\right ]
+\end{eqnarray}
+となる。ここでは$\hat{\textbf{p}}^2=\hat{\textbf{p}}_x^2+\hat{\textbf{p}}_y^2+\hat{\textbf{p}}_z^2$である。\\
+(9)式から、エネルギー演算子の右上の１ブロックはパウリのスピン行列でかける。
+\begin{eqnarray}
+\left [
+\begin{array}{rr}
+c\hat{p}_z & c(\hat{p}_x-i\hat{p}_y) \\
+c(\hat{p}_x+i\hat{p}_y) & -c\hat{p}_z 
+\end{array}
+\right ] &=& \left [
+\begin{array}{rr}
+0 & 1 \\
+1 & 0 
+\end{array}
+\right ] \hat{p}_x + \left [
+\begin{array}{rr}
+0 & -i \\
+i &0 
+\end {array}
+\right ] \hat{p}_y +\left [
+\begin{array}{rr}
+1 & 0 \\
+0 & -1 
+\end{array}
+\right ] \hat{p}_z \nonumber \\
+&=& \sigma_x \hat{p}_x + \sigma_{y}\hat{p}_y +\sigma_{z}\hat{p}_z \nonumber \\
+&=& \sigma \hat{\textbf{p}}
+\end{eqnarray} 
+$\sigma$はパウリのスピン行列である。\\
+2成分ごとに表記を書き直す。波動関数については、
+\begin{eqnarray}
+\Phi = \left [
+\begin{array}{r}
+\Phi_1 \\
+\Phi_2 \\
+\Phi_3 \\
+\Phi_4
+\end{array}
+\right ] = \left [
+\begin{array}{r}
+\Phi_L \\
+\Phi_S 
+\end{array} 
+\right ] \nonumber
+\end{eqnarray}
+と書くことができる。この波動関数の表記を使用すると、(7)式は、
+\begin{eqnarray}
+E &=&\left [
+\begin{array}{r}
+\Phi_L \\
+\Phi_S 
+\end{array} 
+\right ] = m_e c^2 \left [
+\begin{array}{rr}
+\textbf{I}_2 & 0_2 \\
+0_2 & -\textbf{I}_2 
+\end{array}
+\right ] \left [
+\begin{array}{r}
+\Phi_L \\
+\Phi_S
+\end{array}
+\right ] + \left [
+\begin{array}{rr}
+0_2 & c\sigma \textbf{p} \\
+c\sigma \textbf{p} & 0_2 
+\end{array}
+\right ] \left [
+\begin{array}{r}
+\Phi_L \\
+\Phi_S
+\end{array}
+\right ] \nonumber \\
+&=& \left [
+\begin{array}{rr}
+m_ec^2 \textbf{I} & c\sigma \textbf{p} \\
+c\sigma \textbf{p} & -m_ec^2 \textbf{I} 
+\end{array}
+\right ] \left [
+\begin{array}{r}
+\Phi_L \\
+\Phi_S
+\end{array}
+\right ]
+\end{eqnarray}
+とかける。ここでの$\textbf{I}$と$0_2$は、次のように表される。
+\begin{eqnarray}
+\textbf{I}_2 = \left [
+\begin{array}{rr}
+1 & 0 \\
+0& 1 
+\end{array} 
+\right ] , 0_2 = \left [
+\begin{array}{rr}
+0 & 0 \\
+0 & 0
+\end{array}
+\right ] \nonumber 
+\end{eqnarray}
+ここでエネルギーの基準を$ E =m_ec^2 $にとる。すると、(13)式は、
+\begin{eqnarray}
+E\left [
+\begin{array}{r}
+\Phi_L \\
+\Phi_S
+\end{array}
+\right ] = \left [
+\begin{array}{rr}
+0 & c\sigma \textbf{p} \\
+c\sigma \textbf{p} & -2m_ec^2 \textbf{I} 
+\end{array}
+\right ] \left [
+\begin{array}{r}
+\Phi_L \\
+\Phi_S
+\end{array}
+\right ]
+\end{eqnarray}
+と書ける。ポテンシャルエネルギー$V$が存在すれば、運動エネルギーは$E-V$となる。
+\begin{eqnarray}
+(E-V)  \left [
+\begin{array}{r}
+\Phi_L \\
+\Phi_S
+\end{array}
+\right ] = \left [
+\begin{array}{rr}
+0 & c\sigma \textbf{p} \\
+c\sigma \textbf{p} & -2m_ec^2 \textbf{I} 
+\end{array}
+\right ] \left [
+\begin{array}{r}
+\Phi_L \\
+\Phi_S
+\end{array}
+\right ]
+\end{eqnarray}
+\begin{eqnarray}
+E  \left [
+\begin{array}{r}
+\Phi_L \\
+\Phi_S
+\end{array}
+\right ] = \left [
+\begin{array}{rr}
+V & c\sigma \textbf{p} \\
+c\sigma \textbf{p} & V-2m_ec^2 \textbf{I} 
+\end{array}
+\right ] \left [
+\begin{array}{r}
+\Phi_L \\
+\Phi_S
+\end{array}
+\right ]
+\end{eqnarray}
+すると、連立方程式がでてくる。
+\begin{numcases}
+{}
+E\Phi_L = V\Phi_L + c\sigma\textbf{p}\Phi_S & \\
+E \Phi_S = c\sigma \textbf{p}\Phi_L +(V-2m_ec^2)\Phi_S &
+\end{numcases}
+
+\subsection*{スピン関数とスピン演算子に関して}
+パウリ行列でスピン演算子を表現することができる。
+\begin{equation}
+\hat{\$} = \frac{1}{2}\sigma \hbar
+\end{equation}
+この基底については、２成分波動関数
+\begin{eqnarray}
+\alpha = \left [
+\begin{array}{r}
+1 \\
+0 
+\end{array}
+\right ], \beta = \left [
+\begin{array}{r}
+0 \\
+1
+\end{array}
+\right ]
+\end{eqnarray}
+である。
+z成分の演算を計算し、確認してみる。
+\begin{eqnarray}
+\hat{S}_z \alpha = \hat{S}_z \left[
+\begin{array}{r}
+1 \\
+0 
+\end{array}
+\right ] = \frac{1}{2} \sigma_z \hbar \left[
+\begin{array}{r}
+1 \\
+0 
+\end{array}
+\right ] &=&\frac{1}{2}\hbar \left[
+\begin{array}{rr}
+1 & 0 \\
+0 & -1 
+\end{array}
+\right ] \left [
+\begin{array}{r}
+1 \\
+0 
+\end{array}
+\right ] \nonumber \\
+&=& \frac{1}{2}\hbar \left [
+\begin{array}{r}
+1 \\
+0 
+\end{array}
+\right ]  = \frac{1}{2}\hbar \alpha
+\end{eqnarray}
+
+\begin{eqnarray}
+\hat{S}_z \beta = \hat{S}_z \left[
+\begin{array}{r}
+0 \\
+1 
+\end{array}
+\right ] = \frac{1}{2} \sigma_z \hbar \left[
+\begin{array}{r}
+0 \\
+1 
+\end{array}
+\right ] &=&\frac{1}{2}\hbar \left[
+\begin{array}{rr}
+1 & 0 \\
+0 & -1 
+\end{array}
+\right ] \left [
+\begin{array}{r}
+0 \\
+1 
+\end{array}
+\right ] \nonumber \\
+&=& -\frac{1}{2}\hbar \left [
+\begin{array}{r}
+0 \\
+1 
+\end{array}
+\right ]  = -\frac{1}{2}\hbar \beta
+\end{eqnarray}
+(18)式から解くと、
+\begin{equation}
+\Phi_S = \frac{1}{E-V+2m_ec^2}(c\sigma \hat{\textbf{p}})\Phi_L
+\end{equation}
+これを(17)式に代入して、
+\begin{eqnarray}
+E\Phi_L =V\Phi_L +(c\sigma \hat{\textbf{p}})\frac{1}{E-V+2m_ec^2}(c\sigma \hat{\textbf{p}})\Phi_L
+\end{eqnarray}
+ここで、$E-V \ll 2m_ec^2$、$E-V+2m_ec^2 \approx 2m_ec^2 $とすると、
+\begin{eqnarray}
+\Phi_S \approx \frac{1}{2m_ec^2}(c\sigma \hat{\textbf{p}})\Phi_L = \frac{c\hat{\textbf{p}}}{2m_ec^2}\Phi_L
+\end{eqnarray}
+すると、(24)式は、
+\begin{eqnarray}
+E &=& V\Phi_L +(c\sigma \textbf{p})\frac{1}{E-V+2m_ec^2}(c\sigma \textbf{p})\Phi_L \nonumber \\
+&\approx & V\Phi_L +(c\sigma \textbf{p})\frac{1}{2m_ec^2}(c\sigma \textbf{p})\Phi_L \nonumber \\
+&=& V\Phi_L+\frac{(c\sigma \textbf{p})(c\sigma \textbf{p})}{2m_e}\Phi_L = V\Phi_L +\frac{\hat{\textbf{p}}^2}{2m_e}\Phi_L \nonumber \\
+&=& (\frac{\hat{\textbf{p}}^2}{2m_e}+V)\Phi_L 
+\end{eqnarray}
+つまり、次のように書くことができる。
+\begin{eqnarray}
+E \left [
+\begin{array}{r}
+\Phi_1 \\
+\Phi_2
+\end{array}
+\right ] =  (\frac{\hat{\textbf{p}}^2}{2m_e}+V) \left [
+\begin{array}{r}
+\Phi_1 \\
+\Phi_2
+\end{array}
+\right ] 
+\end{eqnarray}
+連立方程式で分けて表記すると、
+\begin{numcases}
+{}
+E\Phi_1=  (\frac{\hat{\textbf{p}}^2}{2m_e}+V)\Phi_1 & \\
+E \Phi_2 =  (\frac{\hat{\textbf{p}}^2}{2m_e}+V)\Phi_2 &
+\end{numcases}
+と表現できる。\\
+
+波動関数の規格化について考える。\\
+波動関数の規格化は4成分全体で満たされる。
+\begin{eqnarray}
+\int \Phi^* \Phi dv = \int [\Phi_L^* \Phi_L] \left [
+\begin{array}{r}
+\Phi_L \\
+\Phi_S
+\end{array}
+\right ] dv = \int \Phi_L^* \Phi_L dv +\int\Phi_S^*\Phi_S dv =1
+\end{eqnarray}
+$\Phi_S$と$\Phi_L$の$c^{-2}$オーダー近似関数を代入する。
+\begin{eqnarray}
+\int{\Phi_L^* \Phi_L}dv +\int \Phi_S^* \Phi_S dv &=& \int\Phi_L^*\Phi_Ldv +\int(\frac{\sigma\hat{\textbf{p}}}{2m_ec}\Phi_L)^*(\frac{\sigma\hat{\textbf{p}}}{2m_ec}\Phi_L)dv \nonumber \\
+&=&\int\Phi_L^*\Phi_Ldv +\int\Phi_L^*(\frac{\sigma\hat{\textbf{p}}}{2m_ec})^*(\frac{\sigma\hat{\textbf{p}}}{2m_ec})\Phi_L dv \nonumber \\
+&=&\int \Phi_L^*(1+\frac{\hat{\textbf{p}}^2}{4m_e^2 c^2})\Phi_L dv \nonumber \\
+&=& \int \Phi_L^*(1+\frac{\hat{\textbf{p}}^2}{8m_e^2 c^2})(1+\frac{\hat{\textbf{p}}^2}{8m_e^2 c^2})\Phi_L dv \nonumber \\
+&=& \int \Phi_T^*\Phi_T dv =1 
+\end{eqnarray}
+このとき、$c^{-4}$のオーダーの誤差は無視している。
+\begin{eqnarray}
+\Phi_T = (1+\frac{\hat{\textbf{p}}^2}{8m_e^2 c^2})\Phi_L
+\end{eqnarray}
+\begin{eqnarray}
+\Phi_L = (1-\frac{\hat{\textbf{p}}^2}{8m_e^2 c^2})\Phi_T
+\end{eqnarray}
+
+\subsection*{相対論的補正項について}
+(17),(18)式より、
+\begin{eqnarray}
+E\Phi_L = V\Phi_L +\sigma\hat{\textbf{p}}\frac{c^2}{E-V+2m_ec^2}\sigma\hat{\textbf{p}}\Phi_L
+\end{eqnarray}
+となる。これを(32),(33)式を考慮して、$\Phi_T$の方程式を書き換える。
+\begin{eqnarray}
+&&[1-\frac{\hat{\textbf{p}}^2}{8m_e^2 c^2}][(\sigma\hat{\textbf{p}}){E-V+2m_ec^2}(\sigma\hat{\textbf{p}})+V][1-\frac{\hat{\textbf{p}}^2}{8m_e^2 c^2}]\Phi_T \nonumber \\
+&=& E [1-\frac{\hat{\textbf{p}}^2}{8m_e^2 c^2}]^2 \Phi_T
+\end{eqnarray}
+このとき、$E-V$が$2m_ec^2$に対して非常に小さいとする。
+\begin{equation}
+|\frac{E-V}{2m_ec^2}|\ll1
+\end{equation}
+$\Phi_L$の方程式の分数部分をテーラー展開していく。
+（例）として、$|x|\ll1$の時、
+\begin{eqnarray}
+\frac{1}{1+x} =1-x+x^2+ \cdots \approx 1-x 
+\end{eqnarray}
+となる。この近似式を利用して、次にように計算を行うことができる。
+\begin{eqnarray}
+\frac{c^2}{E-V+2m_ec^2}=\frac{c^2}{2m_ec^2+(E-V)}=\frac{1}{2m_e}\frac{1}{1+\frac{E-V}{2m_ec^2}}\approx\frac{1}{2m_e}[1-\frac{E-V}{2m_ec^2}]
+\end{eqnarray}
+この(38)式を(35)式を代入する。
+\begin{eqnarray}
+&&1-\frac{\hat{\textbf{p}}^2}{8m_e^2 c^2}][(\sigma\hat{\textbf{p}})\frac{1}{2m_e}[1-\frac{E-V}{2m_ec^2}](\sigma\hat{\textbf{p}})+V][1-\frac{\hat{\textbf{p}}^2}{8m_e^2 c^2}]\Phi_T \nonumber \\
+&=& E[1+\frac{\hat{\textbf{p}}^2}{8m_e^2 c^2}]\Phi_T
+\end{eqnarray}
+$\hat{\textbf{p}}$が演算子であることを考慮する。
+\begin{eqnarray}
+\hat{\textbf{p}}=(\hat{p}_x,\hat{p}_y,\hat{p}_z)=(\frac{\hbar}{i}\frac{\partial}{\partial x},\frac{\hbar}{i}\frac{\partial}{\partial y},\frac{\hbar}{i}\frac{\partial}{\partial z})
+\end{eqnarray}
+この時、
+\begin{eqnarray}
+&&[\frac{\hat{\textbf{p}}^2}{2m_e}+V-\frac{\hat{\textbf{p}}^2}{2m_e^2c^2}(\frac{\hat{\textbf{p}}^2}{2m_e}+V)-(\frac{\hat{\textbf{p}}^2}{2m_e}+V)\frac{\hat{\textbf{p}}^2}{2m_e^2c^2}-\frac{(\sigma\hat{\textbf{p}})}{2m_e}\frac{E-V}{2m_ec^2}(\sigma\hat{\textbf{p}})]\Phi_T \nonumber \\
+&=& E[1-\frac{\hat{\textbf{p}}^2}{2m_e^2c^2}]\Phi_T
+\end{eqnarray}
+つまり、全ての相対論的補正項を加えたディラック方程式というのは以下のように表記できる。
+\begin{eqnarray}
+[\frac{\hat{\textbf{p}}^2}{2m_e}+V-\frac{\hat{\textbf{p}}^4}{8m_e^3c^2}-\frac{\hbar \sigma(\nabla\cdot V \times\hat{\textbf{p}})}{4m_e^2c^2}+\frac{\hbar^2}{8m_e^2c^2}\Delta V]\Phi_T = E\Phi_T
+\end{eqnarray}
+この(42)式のそれぞれの項について見ていく。\\
+まず第１項目と第２項目は、非相対論的シュレディンガー方程式と同じである。\\
+第３項目は、前述した通り、運動量エネルギーの補正項である。\\
+第４項目は、スピン軌道相互作用項になる。原子を仮定すると、ポテンシャルエネルギーは$V=-\frac{Ze^2}{4\pi\epsilon_0}\frac{1}{r}$となる。\\
+実際に第４項目からスピン軌道相互作用項を導出して確認してみる。
+この時、$\hat{\textbf{p}}=\frac{\hbar}{i}\nabla$である。
+\begin{eqnarray}
+\hat{H}_{spin-orbit} &=& -\frac{1}{4m_e^2 c^2}i\sigma[\hat{\textbf{p}}V]\times\hat{\textbf{p}} \nonumber \\
+&=& \frac{1}{4m_e^2c^2}i\sigma[\hat{\textbf{p}}\frac{Ze^2}{4\pi\epsilon_0}\frac{1}{r}]\times\hat{\textbf{p}} \nonumber \\
+&=& \frac{1}{4m_e^2c^2}i\sigma[\frac{\hbar}{i}\frac{Ze^2}{4\pi\epsilon_0}\frac{1}{r}]\times\hat{\textbf{p}} \nonumber \\
+&=&\frac{1}{4m_e^2c^2}\hbar\sigma\frac{Ze^2}{4\pi\epsilon_0}[\nabla\frac{1}{r}]\times\hat{\textbf{p}} \nonumber \\
+&=&\frac{1}{4m_e^2c^2} \frac{Ze^2}{4\pi\epsilon_0}\hbar\sigma[\frac{r}{\textbf{r}}]\times\hat{\textbf{p}} \nonumber \\
+&=& \frac{1}{2m_e^2c^2} \frac{Ze^2}{4\pi\epsilon_0}[\frac{1}{2}\sigma \hbar]\frac{1}{r^3}\hat{\textbf{L}}
+\end{eqnarray}
+これをスピン演算子に直して、
+\begin{eqnarray}
+\hat{H}_{spin-orbit} &=&  \frac{1}{2m_e^2c^2} \frac{Ze^2}{4\pi\epsilon_0}[\frac{1}{2}\sigma\hbar]\frac{\hat{\textbf{L}}}{r^3} \nonumber \\
+&=& \frac{1}{2m_e^2c^2} \frac{Ze^2}{4\pi\epsilon_0}\frac{1}{r^3}\hat{\textbf{S}}\cdot\hat{\textbf{L}}
+\end{eqnarray}
+となる。このようにして、スピン軌道相互作用項を導くことができた。\\
+つまり、この原子内において、電子の内部自由度であるスピン角運動量と軌道角運動量間の相互作用のことをスピン軌道相互作用という。\\
+
+第５項目に関しては、ダーウィン項と呼ばれ、電磁気学でのラプラス方程式に点電荷を代入することで考えることができる。
+
+\end{document}

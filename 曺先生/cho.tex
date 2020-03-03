@@ -1,0 +1,141 @@
+\documentclass[10pt]{jreport}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{cases}
+
+\begin{document}
+\title{理学総論レポート}
+
+\author{お茶の水女子大学人間文化創成科学研究科理学専攻 \\1940620 \\ 前田実津季}
+\date{\today}
+\maketitle
+
+\section*{理学総論　課題12/9}
+
+\section*{1.万有引力定数$G_N=6.67\times10^{-11}m^3{kg}^{-1}s^{-2}$を自然単位系に換算する。}
+\begin{equation}
+G_N = \frac{1}{{M_{pl}}^2}
+\end{equation}
+このとき、$M_{pl}$はプランク質量と呼ばれ、GeV単位である。\\
+自然単位系に長さ、質量、時間を換算したときは、
+
+\begin{eqnarray}
+\left \{ \begin{array}{ll}
+	1kg 	= 5.61\times 10^{26} GeV \\
+	1m = 5.07 \times 10^{15} GeV^{-1} \\
+	1s = 1.52 \times 10^{24} GeV^{-1}	
+\end{array} \right.
+\end{eqnarray}
+
+となる。これらを(1)式に代入し、GeV単位に換算する。
+
+\begin{eqnarray}
+G_N &=& 6.67 \times 10^{-11} \times (5.07\times 10^{15})^3 \times \frac{1}{5.61\times10^{26}} \times \frac{1}{(1.52\times10^{24})^2}  \nonumber \\
+&=& 67.0656 \times 10^{-40} \nonumber \\
+&=& 6.70656 \times 10^{-39}
+\end{eqnarray}
+
+よって、
+\begin{eqnarray}
+\underline{G_N = 6.70656 \times 10^{-39}  [GeV]^{-2}}
+\end{eqnarray}
+
+次に、これを長さ、時間単位に換算する。\\
+(2)式から、GeV単位を長さ、時間に換算すると、
+\begin{eqnarray}
+\left \{ \begin{array}{ll}
+	1/[GeV] = 1/5.07\times 10^{-15} [m] \\
+	1/[GeV] = 1/1.52 \times 10^{-24} [s] 
+\end{array} \right.
+\end{eqnarray}
+となる。\\
+よって(4)式のプランク質量を長さ、時間単位に直すと、
+\begin{eqnarray}
+G_N &=& 6.70656 \times 10^{-39} \times (1/5.07\times10^{-15})^2 \nonumber \\
+&=& 0.260905 \times 10^{-69} \nonumber \\
+&=& \underline{2.60905 \times 10^{-70} [m]^2}
+\end{eqnarray}
+
+\begin{eqnarray}
+G_N &=& 6.70656 \times10^{-39}\times (1/1.52\times10^{-24})^2 \nonumber \\
+&=& \underline{2.90277 \times 10^{-87} [s]^2}
+\end{eqnarray}
+
+\section*{2.ボルツマン定数を使用して、温度$T=1K$のときのエネルギーを求める}
+ボルツマン定数は、
+\begin{equation}
+k_B \approx 1.38\times10^{-23} m^2kgs^{-2}K^{-1}
+\end{equation}
+とかける。\\
+T=1Kのときのエネルギーを求める。(2)式の各単位の自然単位換算を利用して、\\
+\begin{eqnarray}
+k_B &=& 1.38\times10^{-23} \times 1 [m^2kgs^{-2}K^{-1}K] \nonumber \\
+&=& 1.38\times10^{-23} [GeV] \nonumber \\
+&=& 1.38 \times 10^{-23} \times (5.07 \times10^{15})^2 \times 5.61 \times 10^{26} \times \frac{1}{(1.52\times 10^{24})^2} [GeV] \nonumber \\
+&=& 86.133  \times 10^{-15} [GeV] \nonumber \\
+&=&  \underline{8.6133 \times 10^{-5} [eV]}
+\end{eqnarray}
+
+\section*{3.太陽の表面温度を調べ、エネルギー単位に換算する}
+太陽の表面温度を調べると、T=5778Kと分かった。\\
+2の問題を元に、温度を5778倍になるので、計算すると、
+\begin{eqnarray}
+8.6133 \times 10^{-5} \times 5778 &=& 49767.6474 \times 10^{-5} \nonumber \\
+&=& 4.976764 \times 10^{-1} \nonumber \\
+&=& \underline{0.4967 [eV]}
+\end{eqnarray}
+
+\section*{4.標的にビームを照射する実験で、使用したビームのエネルギーと測定対象のスケールの関係を自然単位系の観点から議論する}
+陽子同士を衝突させ、物理現象を探るATLAS実験について述べることにする。現在のATLAS実験の陽子ビームの衝突エネルギーは、7TeVで正面衝突させている。\\
+陽子ビームに関するそれぞれのパラメータは次のようになっている。\\
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|} \hline
+	陽子エネルギー & [GeV] & 7000 \\ \hline 
+	1バンチあたりの陽子数 & & $1.15× 10^{11}$ \\ 
+	バンチ数　& & 2808 \\
+	エミッタンス　&$ [\mu m] $ & 3.75 \\
+	最高ルミノシティ &$[cm^{-2} s^{-1}]$ & $1.0 \times 10^{34}$ \\
+	バンチの長さ & [cm] & 7.55 \\
+	バンチサイズ　& $[\mu m]$ &16.7 \\ \hline
+\end{tabular}
+\end{table}
+
+\newpage
+
+
+この7TeV+7TeVの陽子ビームの衝突実験によって測定したい対象のエネルギースケールは、各粒子同士の相互作用や、その粒子に関する物理量など様々なミクロなスケールである。物理量として例えば、代表的な粒子(ゲージボソン、レプトン、クォーク)の質量をまとめると次のようになる。また、衝突させている陽子の質量は、$0.9382\times 10^9[eV]$である。
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|} \hline
+	粒子(記号) & 質量[eV]　\\ \hline
+	ゲージボソン & \\
+	$\gamma$ &0 \\
+	g & 0 \\
+	$W^+$ & $80.385 \times 10^{9}$ \\
+	$Z^0$ & $91.188 \times 10^{9}$ \\
+	$H^0$ & $125.7 \times 10^{9}$ \\
+	レプトン　& \\
+	$e^- $ & $0.51099 \times 10^6$ \\
+	$\mu^-$ & $105.6583 \times 10^6 $ \\
+	$\tau ^-$ & $1776.9\times 10^6 $ \\
+	$\nu_e$ & $<2.2$ \\
+	$\nu_{\mu}$ & $<0.17\times 10^6$ \\
+	$\nu_{\tau }$ & $<18.2\times 10^6$ \\
+	クォーク　& \\
+	u &$2.3\times 10^6 $ \\
+	d & $4.8 \times 10^6$ \\
+	s & $95\times 10^6$ \\
+	c & $1275\times 10^6$ \\
+	b & $4180\times 10^6$ \\
+	t & $173.2\times 10^9$ \\ \hline
+	
+\end{tabular}
+\end{table}
+
+これらの粒子が、陽子同士を重心系エネルギー14TeVで衝突させ、数多くの起こる事象を検出器で測定を行う。\\
+ビームのエネルギーと、測定対象のエネルギースケールとの関係は、非常にビームエネルギーが大きくなっていることがわかる。\\
+陽子同士を衝突させることで、多くの粒子が生成され、衝突エネルギーがこれらの粒子の生成に使われる。そのため、質量の大きな粒子の事象や、相互作用の結合力が大きな事象の観測を行いたい場合は、より大きな衝突エネルギーが必要になるということである。\\
+加えて、衝突エネルギーを大きくする理由としては、長さスケールで考えてみる。ミクロな長さスケールで事象をみるということは、長さとエネルギーは反比例の関係にあるため、より大きなエネルギーが必要であるということでもあるということが自然単位の観点からわかる。\\
+
+
+\end{document}

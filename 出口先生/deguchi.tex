@@ -1,0 +1,152 @@
+\documentclass[10pt]{jreport}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{cases}
+
+
+\begin{document}
+\title{理学総論レポート（担当：出口先生）}
+
+\author{お茶の水女子大学人間文化創成科学研究科理学専攻 \\1940620 \\ 前田実津季}
+\date{\today}
+\maketitle
+
+\section*{揺動散逸定理の一種を導出する}
+今、小さい粒子が水中を動いている状況を考える。\\
+水の粘性、水中に粘性力をFとおく。\\
+このとき、ストークスの法則より、粘性力は、次のように表すことができる。\\
+\begin{equation}
+F=6\pi \eta av
+\end{equation}
+この時の、$\eta$は、粘性係数である。また、aは小さい粒子の半径、Vは小さい粒子の速度である。\\
+ここで、$\xi = 6\pi\eta a$をおくと、(1)式は、
+\begin{equation}
+F = \xi v
+\end{equation}
+となる。\\
+この粘性力に加えて、水中では小さい粒子は水分子の熱運動によって乱雑な力が働く。(R(t))\\
+次の方程式をランジュバン方程式と呼び、
+\begin{equation}
+m\frac{dv}{dt}=-\xi v +R(t)
+\end{equation}
+このランダム力の平均値は0である。
+\begin{equation}
+\langle R(t)\rangle = 0
+\end{equation}
+また、このランダム力の分散は、
+\begin{equation}
+\langle R(t_1)R(t_2) \rangle = 2\varepsilon \delta(t_1-t_2)
+\end{equation}
+となり、同時刻のランダム力の分散の平均値は(5)式から$2\varepsilon$となることがわかる。\\
+この$\varepsilon$について、これから$\varepsilon=\xi k_B T$となることを示す。\\
+
+粘性係数が非常に大きい粘性極限では、(3)式は、
+\begin{equation}
+m\frac{dv}{dt}=0
+\end{equation}
+となり、
+\begin{eqnarray}
+-\xi v+R(t) =0 \nonumber \\
+\Leftrightarrow \frac{dx}{dt}=\frac{1}{\xi}R(t)
+\end{eqnarray}
+となる。\\
+$x(t)-x(0)=\int^t_0 \frac{dx}{dt}$であるので、
+\begin{eqnarray}
+\langle (x(t)-x(0))^2\rangle &=& \langle \int^t_0\frac{1}{\xi}R(t_1)dt_1\int^t_0\frac{1}{\xi}R(t_2)dt_2\rangle \nonumber \\
+&=& \frac{1}{\xi ^2} \int^t_0dt_1 \int^t_0dt_2\langle R(t_1)R(t_2)\rangle \nonumber \\
+&=& \frac{2\varepsilon}{\xi ^2}\int^t_0dt_1\nonumber \\
+&=& \frac{2\varepsilon}{\xi^2} t 
+\end{eqnarray}
+となる。\\
+ここで、$\varepsilon=\xi k_B T$を仮定する。\\
+とすると、
+\begin{equation}
+\langle (x(t)-x(0))^2 \rangle =2 \frac{k_BT}{\xi}t
+\end{equation}
+となり、つまり、時間とともに、粒子の位置がずれていくということである。Dを拡散係数とおくと、
+\begin{equation}
+D=\frac{k_BT}{\xi}
+\end{equation}
+となり、これはアインシュタインの関係式を呼ばれる。この関係式から、$\xi = 6\pi \eta a$であり、Dとaは反比例の関係にあることもわかる。\\
+(3)式の
+\begin{eqnarray}
+m\frac{dv}{dt}=-\xi v +R(t) \nonumber
+\end{eqnarray}
+は、線形の非斉次方程式なので、定数変形法で解くことができる。
+\begin{equation}
+m\frac{dv}{dt}=-\xi v
+\end{equation}
+変数分離法により、
+\begin{eqnarray}
+mdv = -\xi v dt \nonumber \\
+\frac{dv}{v} = -\frac{\xi}{m} dt 
+\end{eqnarray}
+これを両辺積分して、
+\begin{eqnarray}
+\log v = -\frac{\xi}{m}t + c\nonumber \\
+v = c\exp(-\frac{\xi}{m}t)
+\end{eqnarray}
+積分定数のcを時間に依存するとし、$c \rightarrow c(t)$と仮定する。すると、(13)式は、
+\begin{equation}
+v(t) = c(t)e^{-\frac{\xi}{m}t}
+\end{equation}
+となる。時間で微分すると、
+\begin{equation}
+\frac{dv}{dt}=-\frac{\xi}{m}e^{-\frac{\xi}{m}t}c(t) + \frac{dc}{dt}e^{-\frac{\xi}{m}t}
+\end{equation}
+となる。両辺にmをかけ、(3)式を比較すると、
+\begin{eqnarray}
+m\frac{dv}{dt} &=& -\xi c(t)e^{-\frac{\xi}{m}t}+m\frac{dc}{dt}e^{-\frac{\xi}{m}t} \\
+&=& -\xi v +R(t)
+\end{eqnarray}
+つまり、
+\begin{eqnarray}
+\left \{
+\begin{array}{l}
+v = c(t) e^{-\frac{\xi}{m}t} \\
+R(t) =m\frac{dc}{Dt}e^{-\frac{\xi}{m}t}
+\end{array}
+\right.
+\end{eqnarray}
+となる。よって、
+\begin{eqnarray}
+\frac{dc}{dt} &=& \frac{1}{m}R(t)e^{\frac{\xi}{m}t} \nonumber \\
+c(t) &=& \frac{1}{m}\int^t_0R(t_1)e^{\frac{\xi}{m}t_1}dt_1 +c_0
+\end{eqnarray}
+とおける。この$c(t)$を(14)式に代入すると、
+\begin{eqnarray}
+v(t) = e^{-\frac{\xi}{m}t}\int^t_0 \frac{1}{m}R(\tau)e^{\frac{\xi}{m}\tau}d\tau +c_0e^{-\frac{\xi}{m}t}
+\end{eqnarray}
+となる。これを用いて、$\langle v(t_1)v(t_2) \rangle$を計算する。\\
+(4)式から、$\langle R(t)\rangle =0 $より、$c_0$の項は、時間が十分にたてば消えるので、この項は無視して、計算を行うことにする。
+\begin{eqnarray}
+\langle v(t_1)v(t_2) \rangle &=& \langle e^{-\frac{\xi}{m}t_1}\int^{t_1}_0 \frac{1}{m} rR(\tau)e^{\frac{\xi}{m}\tau}d\tau e^{-\frac{\xi}{m}t_2}\int^{t_2}_0\frac{1}{m}R(\tau ')e^{\frac{\xi}{m}\tau '}d\tau ' \rangle \nonumber \\
+&=& \frac{1}{m^2} e^{-\frac{\xi}{m}(t_1+t_2)}\int^{t_1}_0d\tau \int^{t_2}_0d\tau ' e^{\frac{\xi}{m}(\tau+\tau')}\langle R(\tau)R(\tau') \rangle
+\end{eqnarray}
+ここで$\langle R(\tau R(\tau ') \rangle=2\varepsilon \delta(\tau-\tau ')$で、今、$t_1 > t_2$のとき、(21)式は
+\begin{eqnarray}
+&=& \frac{1}{m^2}e^{-\frac{\xi}{m}t_1+t_2}\int^{t_1}_0 d\tau e^{-\frac{\xi}{m}\tau}2\varepsilon \nonumber \\
+&=& \frac{1}{m^2}e^{-\frac{\xi}{m}t_1+t_2}(\frac{m}{2\xi})[e^{-\frac{2\xi}{m}\tau}]^{t_1}_0 2\varepsilon \nonumber \\
+&=& \frac{\varepsilon}{m\xi} e^{-\frac{\xi}{m}t_1+t_2}(e^{-\frac{2\xi}{m}t_1}-1) \nonumber \\
+&=& \frac{\varepsilon}{m\xi} (e^{-\frac{\xi}{m}(-t_1+t_2)}-e^{-\frac{\xi}{m}(t_1+t_2)})
+\end{eqnarray}
+今仮定で、$t_1 > t_2$のときを考えたが、逆もあり得るので、一般的に、$\langle v(t_1)v(t_2) \rangle$は、
+\begin{equation}
+\underline{\langle v(t_1)v(t_2) \rangle =\frac{\varepsilon}{m\xi} (e^{-\frac{\xi}{m}\|t_1-t_2\|}-e^{-\frac{\xi}{m}(t_1+t_2)})}
+\end{equation}
+となる。\\
+今、$t_1,t_2 \gg 1$でかつ、$t_1=t_2$のとき、
+\begin{equation}
+\langle v(t_1)^2 \rangle \simeq \frac{\varepsilon}{m\xi}
+\end{equation}
+で、エネルギー等分配則より、
+\begin{equation}
+\frac{m}{2} \langle v(t)^2 \rangle = \frac{1}{2}k_BT
+\end{equation}
+よって、
+\begin{eqnarray}
+\frac{\varepsilon}{2\xi} = \frac{1}{2}k_BT \nonumber \\
+\underline{\varepsilon =\xi k_BT }
+\end{eqnarray}
+となることがわかった。
+
+\end{document}
